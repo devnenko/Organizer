@@ -4,7 +4,7 @@
     import { onMount } from "svelte";
     import { TimeEnum, getDay, goals, todo } from "../stores";
     import { json } from "@sveltejs/kit";
-    import { base } from '$app/paths';
+    import { base } from "$app/paths";
 
     onMount(() => {
         //figure out local time
@@ -59,14 +59,14 @@
 <div class="flex flex-col m-7 gap-4">
     <div class=" flex flex-row justify-between py-2">
         <div class="text-5xl font-bold">Tasks</div>
-        <button class="h-12 aspect-square" on:click={() => goto({base}+"/edit")}>
+        <a class="h-12 aspect-square" href="{base}/edit">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 ><path
                     fill="white"
                     d="M5 19h1.4l8.625-8.625l-1.4-1.4L5 17.6V19ZM19.3 8.925l-4.25-4.2l1.4-1.4q.575-.575 1.413-.575t1.412.575l1.4 1.4q.575.575.6 1.388t-.55 1.387L19.3 8.925ZM17.85 10.4L7.25 21H3v-4.25l10.6-10.6l4.25 4.25Zm-3.525-.725l-.7-.7l1.4 1.4l-.7-.7Z"
                 /></svg
             >
-        </button>
+        </a>
     </div>
     {#each $todo as td}
         <Task goal={td} />
